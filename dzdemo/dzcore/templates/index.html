@@ -4,13 +4,7 @@
 <h1>Index</h1>
 
 {% if user.is_authenticated %}
-<h3>{{ request.user }}</h3>
-<ul>
-  <li><a href="/logout/">Logout</a></li>
-</ul>
-{% else %}
-<ul>
-  <li><a href="/login/">Login</a></li>
-</ul>
+<h3>Hello {{ request.user }}!</h3>
 {% endif %}
+
 {% endblock content %}

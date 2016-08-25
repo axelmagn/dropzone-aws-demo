@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
+from django.views.generic.base import RedirectView
+
+from dzcore.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/$', login),
+    url(r'^logout/$', logout, {'next_page': '/'}),
+    url(r'^accounts/profile/$', RedirectView.as_view(url="/")),
+    url(r'^$', IndexView.as_view()),
 ]

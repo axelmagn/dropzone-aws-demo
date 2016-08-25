@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
+        'bootstrap3'
+]
+
+INSTALLED_APPS += [
     'dzcore',
 ]
 

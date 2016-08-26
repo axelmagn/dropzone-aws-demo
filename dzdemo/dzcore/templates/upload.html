@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block head_content %}
 <div class="jumbotron">
   <div class="container">
     <div class="row">
@@ -8,5 +8,14 @@
     </div>
   </div>
 </div>
+{% endblock head_content %}
 
-{% endblock content %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/api/upload" class="dropzone" id="upload-box"></form>
+    </div>
+  </div>
+</div>
+{% endblock %}

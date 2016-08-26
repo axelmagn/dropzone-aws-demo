@@ -10,6 +10,9 @@
     {% bootstrap_css %}
     {% bootstrap_javascript jquery=1 %}
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   
@@ -35,6 +38,8 @@
       </div>
 
     </nav>
+
+    {% block head_content %}{% endblock %}
 
     <div class="container">
       <!-- Messages -->

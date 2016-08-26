@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Welcome to the Splediferous Upload Demo App</h1>
+    </div>
+  </div>
+</div>
+{% endblock head_content %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/api/upload" class="dropzone" id="upload-box"></form>
+    </div>
+  </div>
+</div>
+{% endblock %}

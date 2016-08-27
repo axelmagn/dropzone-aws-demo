@@ -10,11 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+from datetime import timedelta
 import os
+
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# load env variables if not already set
+env_file = os.path.join(BASE_DIR, '.env')
+if os.path.isfile(env_file):
+    load_dotenv(env_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -127,3 +135,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# AWS Details
+AWS_UPLOAD_BUCKET = os.environ['AWS_UPLOAD_BUCKET']
+AWS_UPLOAD_REGION = os.environ['AWS_UPLOAD_REGION']
+AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+AWS_UPLOAD_PREFIX = "{user}/uploads/"
+AWS_UPLOAD_ACL = "private"
+AWS_REDIRECT_URL = '/'
+AWS_POLICY_TEMPLATE = "policy.json"
+AWS_UPLOAD_EXPIRE_DURATION = timedelta(days=1)

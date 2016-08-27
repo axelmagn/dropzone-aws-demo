@@ -91,3 +91,9 @@ ENV/
 # SQlite3 DB
 *.sqlite3
 *.sqlite
+
+# env file
+/.env
+/dzdemo/.env
+/env
+/dzdemo/env

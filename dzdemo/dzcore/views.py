@@ -21,7 +21,7 @@ def upload(request):
                 'amz_signature': policy.get_signature(),
         }
 
-        template = loader.get_template('upload_form.html')
+        template = loader.get_template('upload.html')
         return HttpResponse(template.render(context, request))
     else:
         return redirect('/login/')

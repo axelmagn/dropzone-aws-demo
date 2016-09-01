@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.contrib.auth.views import login, logout
 from django.views.generic.base import RedirectView
 
-from dzcore.views import IndexView
+from dzcore.views import upload
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/$', login),
-    url(r'^logout/$', logout, {'next_page': '/'}),
+    url(r'^admin/', admin.site.urls, name="admin"),
+    url(r'^login/$', login, name="login"),
+    url(r'^logout/$', logout, {'next_page': '/'}, name="logout"),
     url(r'^accounts/profile/$', RedirectView.as_view(url="/")),
-    url(r'^$', IndexView.as_view()),
+    url(r'^$', upload, name="dashboard"),
+    url(r'^upload/complete/$',  RedirectView.as_view(url="/"),
+        name="upload-complete"),
 ]
